@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8" />
+    <title>House</title>
+    <link
+      href="https://unpkg.com/gridjs/dist/theme/mermaid.min.css"
+      rel="stylesheet"
+    />
+  <title>Customer List</title>
+  </head>
+  <body>
+    <div class="container">
+  </div>
+  <div><span>List of all customers with details</span></div>
+  <div id='jsonTable' style="width:75%;align-items:center;"></div>
+  </div>
+  <script src="https://unpkg.com/gridjs/dist/gridjs.development.js"></script>
+  </body>
+  <script type="text/javascript">
+    var list=JSON.parse('{{ jsonfile|safe }}');
+    console.log(list);
+
+    
+  grid = new gridjs.Grid({
+    columns: [
+    {id: 'id',name: 'id',},{id:'Name',name:'Name'},{id:'ticket',name:'ticket'}],
+    data: list
+}).render(document.getElementById("jsonTable"));
+    
+                  
+  </script> 
+</html>
